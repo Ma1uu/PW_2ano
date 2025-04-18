@@ -9,8 +9,17 @@ html {
     color: white;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
+    justify-content: space-between;
+    padding: 0 60px;
+    text-align: left;
+}
+
+#home .texto-home {
+    max-width: 50%;
+}
+
+#home .cards-home {
+    max-width: 50%;
 }
 
 #home h1 {
@@ -23,22 +32,12 @@ html {
     font-size: 1.5rem;
 }
 
-section {
-    padding: 60px 0;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
 #card {
     background-color: #333;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(5, 5, 5, 0.2);
     padding: 20px;
-    margin: 20px;
-    width: 300px;
+    margin: 20px 0;
 }
 
 #card p {
@@ -50,13 +49,81 @@ section {
     margin-top: 30px;
 }
 
+.carousel {
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin: 50px auto;
+    display: block;
+}
+
+.carousel-inner {
+    display: flex;
+    width: 900px;
+    animation: slide 8s infinite;
+}
+
+.carousel-inner img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+}
+
+@keyframes slide {
+    0%   { transform: translateX(0); }
+    25%  { transform: translateX(-300px); }
+    50%  { transform: translateX(-600px); }
+    100% { transform: translateX(0); }
+}
+
+.mapa {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.mapa iframe {
+    width: 600px;
+    height: 450px;
+    border: 0;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
 footer {
     background-color: #333;
     color: #fff;
     padding: 20px 0;
     text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
+footer p {
+    margin: 0;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+section {
+    padding-top: 80px;
+}
+
+section {
+    min-height: 100vh;
+}
 
 nav.scrolled {
     background-color: #333 !important;
