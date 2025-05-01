@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bootstrap - Aula</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-primary">
+        <a class="navbar-brand" href="index.html">Exemplo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item ">
+                    <a class="nav-link" href="index.html" title="Página inicial">
+                        <i class="bi bi-house"></i>
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="validacaoForm.html" title="entre em contato">
+                        <i class="bi bi-input-cursor-text"></i>
+                        Validação
+                        JQuery
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-3">
+        <div class="row mb-3">
+            <div class="col-md-12 col-sm-12 mb-2">
+                <form id="formExemplo" method="get" action="#" novalidate>
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="txtnome">Nome</label>
+                            <input type="text" class="form-control" placeholder="Nome aqui" id="txtnome" name="txtnome">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="txtemail">E-mail</label>
+                            <input type="email" class="form-control" placeholder="E-mail aqui" id="txtemail" name="txtemail">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="txtfilhos">Número de filhos</label>
+                            <input type="number" step="1" class="form-control" id="txtfilhos" name="txtfilhos" placeholder="Número de filhos aqui">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="txtsalario">Salário</label>
+                            <input type="number" step="0.5" class="form-control" id="txtsalario" name="txtsalario" placeholder="Salário aqui">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="txtadmissao">Data de admissão</label>
+                            <input type="date" class="form-control" id="txtadmissao" name="txtadmissao" placeholder="Data de admissão aqui">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="txtredessociais">Endereço das redes sociais</label>
+                            <input type="url" class="form-control" id="txtredessociais" name="txtredessociais" placeholder="URL das redes sociais aqui">
+                        </div>
+
+                        <!-- O botão de envio para disparar a validação -->
+                        <input type="submit" class="btn btn-danger" value="Enviar">
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <!-- Script da validação -->
+    <script src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
+    <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+
+    <!-- Seu script de validação -->
+    <script>
+        $(document).ready(function() {
+            $("#formExemplo").validate({
+                rules: {
+                    txtemail: {
+                        required: true,
+                        email: true
+                    },
+                    txtnome: {
+                        required: true,
+                        rangelength: [2, 50]
+                    },
+                    txtfilhos: {
+                        required: true,
+                        min: 0,
+                        max: 10
+                    },
+                    txtsalario: {
+                        required: true,
+                        min: 2000,
+                        max: 10000
+                    },
+                    txtadmissao: {
+                        required: true
+                    },
+                    txtredessociais: {
+                        required: true,
+                        url: true
+                    }
+                },
+                messages: {
+                    txtemail: {
+                        required: "E-mail obrigatório",
+                        email: "Formato inválido de e-mail"
+                    },
+                    txtnome: {
+                        required: "Nome obrigatório",
+                        rangelength: "Nome deve ter entre 2 e 50 caracteres"
+                    },
+                    txtfilhos: {
+                        required: "Número de filhos é obrigatório",
+                        min: "O mínimo é 0",
+                        max: "O máximo é 10"
+                    },
+                    txtsalario: {
+                        required: "Salário é obrigatório",
+                        min: "Salário mínimo é 2000",
+                        max: "Salário máximo é 10000"
+                    },
+                    txtadmissao: {
+                        required: "Data de admissão obrigatória"
+                    },
+                    txtredessociais: {
+                        required: "Endereço das redes sociais é obrigatório",
+                        url: "Informe uma URL válida"
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
